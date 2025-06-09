@@ -1,4 +1,4 @@
-dnl Copyright (C) 1999-2024 Free Software Foundation, Inc.
+dnl Copyright (C) 1999-2025 Free Software Foundation, Inc.
 dnl This file is part of the GNU LIBICONV Library.
 dnl
 dnl The GNU LIBICONV Library is free software; you can redistribute it
@@ -199,6 +199,20 @@ AH_BOTTOM([
 #endif
 ])
 
+dnl Test for features used in install-tests.
+dnl shlibpath_var and PATH_SEPARATOR are set by LT_INIT.
+AC_SUBST([PATH_SEPARATOR])
+if test -n "${shlibpath_var}"; then
+  if test "${shlibpath_var}" = PATH; then
+    AUGMENT_SHLIBPATH="PATH='\$(bindir)'${PATH_SEPARATOR}\"\$\$PATH\";"
+  else
+    AUGMENT_SHLIBPATH="${shlibpath_var}='\$(libdir)':\"\$\$${shlibpath_var}\"; export ${shlibpath_var};"
+  fi
+else
+  AUGMENT_SHLIBPATH=
+fi
+AC_SUBST([AUGMENT_SHLIBPATH])
+
 AC_CONFIG_SUBDIRS([libcharset])
 AC_CONFIG_FILES([Makefile])
 AC_CONFIG_FILES([lib/Makefile])
@@ -209,6 +223,7 @@ AC_CONFIG_FILES([man/Makefile])
 if test -d "${srcdir}/tests"; then
   AC_CONFIG_FILES([tests/Makefile])
 fi
+AC_CONFIG_FILES([install-tests/Makefile])
 AC_CONFIG_FILES([include/iconv.h:include/iconv.h.build.in])
 AC_CONFIG_FILES([include/iconv.h.inst:include/iconv.h.in])
 AC_OUTPUT

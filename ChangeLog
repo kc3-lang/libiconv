@@ -1,3 +1,15 @@
+2025-06-09  Bruno Haible  <bruno@clisp.org>
+
+	build: Implement 'installcheck' target.
+	* install-tests/test-version.c: New file.
+	* install-tests/Makefile.in: New file.
+	* configure.ac (PATH_SEPARATOR, AUGMENT_SHLIBPATH): New variables.
+	(AC_CONFIG_FILES): Add install-tests/Makefile.
+	* Makefile.in (bindir): New variable.
+	(all, mostlyclean, clean, distclean, maintainer-clean, distdir): Recurse
+	into install-tests.
+	(installcheck): New target.
+
 2025-05-31  Bruno Haible  <bruno@clisp.org>
 
 	Switch to automake 1.18.
