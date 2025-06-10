@@ -1,5 +1,12 @@
 2025-06-09  Bruno Haible  <bruno@clisp.org>
 
+	More install-tests.
+	* install-tests/test-api.c: New file.
+	* install-tests/Makefile.in (installcheck): Compile and run test-api.
+	(SOURCE_FILES): Add test-api.c.
+
+2025-06-09  Bruno Haible  <bruno@clisp.org>
+
 	build: Implement 'installcheck' target.
 	* install-tests/test-version.c: New file.
 	* install-tests/Makefile.in: New file.
