@@ -32,7 +32,7 @@ all :
 mostlyclean : clean
 
 clean : force
-	$(RM) test-version test-version$(EXEEXT)
+	$(RM) test-version test-version$(EXEEXT) test-api test-api$(EXEEXT)
 
 distclean : clean
 	$(RM) Makefile

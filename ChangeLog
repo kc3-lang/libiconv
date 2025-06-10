@@ -4,6 +4,7 @@
 	* install-tests/test-api.c: New file.
 	* install-tests/Makefile.in (installcheck): Compile and run test-api.
 	(SOURCE_FILES): Add test-api.c.
+	(clean): Remove test-api.
 
 2025-06-09  Bruno Haible  <bruno@clisp.org>
 
