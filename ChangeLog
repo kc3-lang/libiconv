@@ -1,3 +1,13 @@
+2025-07-07  Bruno Haible  <bruno@clisp.org>
+
+	Add support for --enable-relocatable in mingw builds on Cygwin hosts.
+	Reported by Michele Locati <michele@locati.it> in
+	<https://github.com/mlocati/gettext-iconv-windows/pull/47#issuecomment-3041406917>.
+	* configure.ac: Invoke gl_BUILD_TO_HOST_BINDIR.
+	* src/Makefile.in (bindir_c_make, localedir_c_make): New variables.
+	(iconv_no_i18n.@OBJEXT@, iconv.@OBJEXT@): Fix value of INSTALLDIR and
+	LOCALEDIR.
+
 2025-06-09  Bruno Haible  <bruno@clisp.org>
 
 	More install-tests.

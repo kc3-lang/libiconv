@@ -23,6 +23,9 @@ AM_INIT_AUTOMAKE
 AC_CONFIG_HEADERS([config.h lib/config.h])
 AC_PROG_MAKE_SET
 
+dnl Define bindir_c and bindir_c_make.
+gl_BUILD_TO_HOST_BINDIR
+
 dnl           checks for basic programs
 
 AC_PROG_CC
