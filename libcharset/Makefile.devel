@@ -25,18 +25,18 @@ config.h.in : configure.ac autoconf/aclocal.m4
 	touch config.h.in
 
 include/libcharset.h.build.in : include/libcharset.h.in include/export.h
-	cat $< \
+	cat include/libcharset.h.in \
 	| sed -e 's/extern \([^"]\)/extern LIBCHARSET_SHLIB_EXPORTED \1/' \
 	      -e '/#define _LIBCHARSET_H/r include/export.h' \
 	| sed -e '/#define _LIBCHARSET_H/,/[*][/]$$/{/#define _LIBCHARSET_H/!d;}' \
-	  > $@
+	  > include/libcharset.h.build.in
 
 include/localcharset.h.build.in : include/localcharset.h.in include/export.h
-	cat $< \
+	cat include/localcharset.h.in \
 	| sed -e 's/extern \([^"]\)/extern LIBCHARSET_SHLIB_EXPORTED \1/' \
 	      -e '/#define _LOCALCHARSET_H/r include/export.h' \
 	| sed -e '/#define _LOCALCHARSET_H/,/[*][/]$$/{/#define _LOCALCHARSET_H/!d;}' \
-	  > $@
+	  > include/localcharset.h.build.in
 
 totally-clean : force
 	rm -f autoconf/aclocal.m4 configure config.h.in include/libcharset.h.build.in include/localcharset.h.build.in
