@@ -71,10 +71,9 @@ if test $skip_gnulib = false; then
     }
   else
     GNULIB_SRCDIR=`pwd`/gnulib
-    test -d "$GNULIB_SRCDIR" || {
-      echo "*** Subdirectory 'gnulib' does not yet exist. Use './gitsub.sh pull' to create it, or set the environment variable GNULIB_SRCDIR." 1>&2
-      exit 1
-    }
+    if ! test -d "$GNULIB_SRCDIR"; then
+        ./gitsub.sh pull
+    fi
   fi
   # Now it should contain a gnulib-tool.
   GNULIB_TOOL="$GNULIB_SRCDIR/gnulib-tool"
