@@ -1,3 +1,6 @@
 [subcheckout "gnulib"]
 	url = git://git.savannah.gnu.org/gnulib.git
 	path = gnulib
+[submodule "gnulib"]
+	path = gnulib
+	url = https://git.kmx.io/kc3-lang/gnulib.git
